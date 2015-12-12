@@ -6,6 +6,7 @@ tip_data = 'yelp_academic_dataset_tip.json'
 checking_data = 'yelp_academic_dataset_checkin.json'
 user_data = 'yelp_academic_dataset_user.json'
 review_data = 'yelp_academic_dataset_review.json'
+review_data_subset = 'yelp_academic_dataset_review_test.json'
 
 
 def get_business_ids(category):
@@ -27,4 +28,10 @@ def find_average_rating():
             total_businesses += 1
     return total_star_rating / total_businesses
 
-print find_average_rating()
+def count_frequencies():
+    with open(review_data_subset) as reviews:
+        for review in reviews:
+            review = json.loads(reviews)
+            print review
+
+count_frequencies()
